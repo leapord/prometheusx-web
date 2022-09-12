@@ -1,5 +1,5 @@
 export default {
-  'login.form.title': 'Login to Promtheusx',
+  'login.form.title': 'Login to Prometheusx',
   'login.form.userName.errMsg': 'Username cannot be empty',
   'login.form.password.errMsg': 'Password cannot be empty',
   'login.form.login.errMsg': 'Login error, refresh and try again',
@@ -11,8 +11,7 @@ export default {
   'login.form.login': 'login',
   'login.form.register': 'register account',
   'login.banner.slogan1': 'a tool suite for prometheus',
-  'login.banner.subSlogan1':
-    'we make exporter config visible',
+  'login.banner.subSlogan1': 'we make exporter config visible',
   'login.banner.slogan2': 'all config base on http_sd',
   'login.banner.subSlogan2':
     'those can be config with web site no need to modify config file',
