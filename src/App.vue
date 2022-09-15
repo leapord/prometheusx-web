@@ -1,26 +1,46 @@
 <template>
-  <a-config-provider :locale="locale">
-    <router-view />
-    <global-setting />
-  </a-config-provider>
+	<el-config-provider :locale="locale" :size="config.size" :zIndex="config.zIndex" :button="config.button">
+		<router-view></router-view>
+	</el-config-provider>
 </template>
 
-<script lang="ts" setup>
-  import { computed } from 'vue';
-  import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
-  import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
-  import GlobalSetting from '@/components/global-setting/index.vue';
-  import useLocale from '@/hooks/locale';
+<script>
+	import colorTool from '@/utils/color'
 
-  const { currentLocale } = useLocale();
-  const locale = computed(() => {
-    switch (currentLocale.value) {
-      case 'zh-CN':
-        return zhCN;
-      case 'en-US':
-        return enUS;
-      default:
-        return enUS;
-    }
-  });
+	export default {
+		name: 'App',
+		data() {
+			return {
+				config: {
+					size: "default",
+					zIndex: 2000,
+					button: {
+						autoInsertSpace: false
+					}
+				}
+			}
+		},
+		computed: {
+			locale(){
+				return this.$i18n.messages[this.$i18n.locale].el
+			},
+		},
+		created() {
+			//设置主题颜色
+			const app_color = this.$CONFIG.COLOR || this.$TOOL.data.get('APP_COLOR')
+			if(app_color){
+				document.documentElement.style.setProperty('--el-color-primary', app_color);
+				for (let i = 1; i <= 9; i++) {
+					document.documentElement.style.setProperty(`--el-color-primary-light-${i}`, colorTool.lighten(app_color,i/10));
+				}
+				for (let i = 1; i <= 9; i++) {
+					document.documentElement.style.setProperty(`--el-color-primary-dark-${i}`, colorTool.darken(app_color,i/10));
+				}
+			}
+		}
+	}
 </script>
+
+<style lang="scss">
+	@import '@/style/style.scss';
+</style>
