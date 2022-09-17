@@ -30,9 +30,9 @@
 		data() {
 			return {
 				form: {
-					name: "administrator@scuiadmin.com",
-					loginName: "Sakuya",
-					email: "",
+					name: "Leapord",
+					loginName: "leapord",
+					email: "leapord@foxmail.com",
 				},
 			};
 		},
