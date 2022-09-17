@@ -21,7 +21,7 @@ const DEFAULT_CONFIG = {
 	TOKEN_NAME: "Authorization",
 
 	//Token前缀，注意最后有个空格，如不需要需设置空字符串
-	TOKEN_PREFIX: "Bearer ",
+	TOKEN_PREFIX: "",
 
 	//追加其他头
 	HEADERS: {},

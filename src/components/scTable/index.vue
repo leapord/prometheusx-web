@@ -199,14 +199,15 @@
 					this.loading = false;
 					this.emptyText = response.msg;
 				}else{
+                    console.log(response)
 					this.emptyText = "暂无数据";
 					if(this.hidePagination){
 						this.tableData = response.data || [];
 					}else{
-						this.tableData = response.rows || [];
+						this.tableData = response.data.rows || [];
 					}
-					this.total = response.total || 0;
-					this.summary = response.summary || {};
+					this.total = response.data.total || 0;
+					this.summary = response.data.summary || {};
 					this.loading = false;
 				}
 				this.$refs.scTable.setScrollTop(0)

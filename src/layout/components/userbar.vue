@@ -81,7 +81,7 @@
 						id: 1,
 						type: 'user',
 						avatar: "img/avatar.jpg",
-						title: "Skuya",
+						title: "Leapord",
 						describe: "如果喜欢就点个星星支持一下哦",
 						link: "http://github.com/leapord/prometheusx",
 						time: "5分钟前"
@@ -91,7 +91,7 @@
 		},
 		created() {
 			var userInfo = JSON.parse(this.$TOOL.data.get("USER_INFO"));
-			this.userName = userInfo.LoginName;
+			this.userName = userInfo.loginName;
 			this.userNameF = this.userName.substring(0,1);
 		},
 		methods: {
