@@ -1,13 +1,7 @@
 <template>
 	<div class="user-bar">
-		<div class="panel-item hidden-sm-and-down" @click="search">
-			<el-icon><el-icon-search /></el-icon>
-		</div>
 		<div class="screen panel-item hidden-sm-and-down" @click="screen">
 			<el-icon><el-icon-full-screen /></el-icon>
-		</div>
-		<div class="tasks panel-item" @click="tasks">
-			<el-icon><el-icon-sort /></el-icon>
 		</div>
 		<div class="msg panel-item" @click="showMsg">
 			<el-badge :hidden="msgList.length==0" :value="msgList.length" class="badge" type="danger">
@@ -64,11 +58,6 @@
 	<el-dialog v-model="searchVisible" :width="700"  title="搜索" custom-class="drawerBG" center destroy-on-close>
 		<search @success="searchVisible=false"></search>
 	</el-dialog>
-
-	<el-drawer v-model="tasksVisible" :size="450"  title="任务中心" custom-class="drawerBG" destroy-on-close>
-		<tasks></tasks>
-	</el-drawer>
-
 </template>
 
 <script>
@@ -94,33 +83,15 @@
 						avatar: "img/avatar.jpg",
 						title: "Skuya",
 						describe: "如果喜欢就点个星星支持一下哦",
-						link: "https://gitee.com/lolicode/scui",
+						link: "http://github.com/leapord/prometheusx",
 						time: "5分钟前"
-					},
-					{
-						id: 2,
-						type: 'user',
-						avatar: "img/avatar2.gif",
-						title: "Lolowan",
-						describe: "点进去Gitee获取最新开源版本",
-						link: "https://gitee.com/lolicode/scui",
-						time: "14分钟前"
-					},
-					{
-						id: 3,
-						type: 'system',
-						avatar: "img/logo.png",
-						title: "感谢登录SCUI Admin",
-						describe: "Vue 3.0 + Vue-Router 4.0 + ElementPlus + Axios 后台管理系统。",
-						link: "https://gitee.com/lolicode/scui",
-						time: "2020年7月24日"
 					}
 				]
 			}
 		},
 		created() {
-			var userInfo = this.$TOOL.data.get("USER_INFO");
-			this.userName = userInfo.userName;
+			var userInfo = JSON.parse(this.$TOOL.data.get("USER_INFO"));
+			this.userName = userInfo.LoginName;
 			this.userNameF = this.userName.substring(0,1);
 		},
 		methods: {

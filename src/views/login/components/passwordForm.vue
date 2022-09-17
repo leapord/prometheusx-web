@@ -23,8 +23,8 @@
 		data() {
 			return {
 				form: {
-					user: "admin",
-					password: "admin",
+					user: "leapord",
+					password: "Abc@123456",
 					autologin: false
 				},
 				rules: {
@@ -56,7 +56,7 @@
 				}
 				//获取token
 				var user = await this.$API.auth.token.post(data)
-				if(user.code == 200){
+				if(user.code == 0){
 					this.$TOOL.cookie.set("TOKEN", user.data.token, {
 						expires: this.form.autologin? 24*60*60 : 0
 					})

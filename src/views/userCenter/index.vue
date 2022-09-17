@@ -6,7 +6,6 @@
 					<div class="user-info-top">
 						<el-avatar :size="70" src="img/avatar.jpg"></el-avatar>
 						<h2>{{ user.userName }}</h2>
-						<p><el-tag effect="dark" round size="large">{{ user.role }}</el-tag></p>
 					</div>
 				</el-header>
 				<el-main class="nopadding">
@@ -77,36 +76,10 @@
 								component: "pushSettings"
 							}
 						]
-					},
-					{
-						groupName: "数据管理",
-						list: [
-							{
-								icon: "el-icon-coin",
-								title: "存储空间信息",
-								component: "space"
-							},
-							{
-								icon: "el-icon-clock",
-								title: "操作日志",
-								component: "logs"
-							}
-						]
-					},
-					{
-						groupName: "账号升级",
-						list: [
-							{
-								icon: "el-icon-office-building",
-								title: "升级为企业账号",
-								component: "upToEnterprise"
-							}
-						]
 					}
 				],
 				user: {
-					userName: "Sakuya",
-					role: "超级管理员",
+					userName: "Sakuya"
 				},
 				page: "account"
 			}
@@ -129,6 +102,10 @@
 			openPage(item){
 				this.page = item.index
 			}
-		}
+		},
+        created(){
+            var userInfo = JSON.parse(this.$TOOL.data.get("USER_INFO"));
+            this.user.userName = userInfo.Name;
+        }
 	}
 </script>
