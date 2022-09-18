@@ -1,7 +1,7 @@
 <template>
     <el-header>
         <div class="left-panel">
-            <el-button type="primary" icon="el-icon-plus"></el-button>
+            <el-button type="primary" icon="el-icon-plus" v-on:click="showAddNodeDrawer"></el-button>
             <el-button type="danger" plain icon="el-icon-delete"></el-button>
         </div>
     </el-header>
@@ -33,13 +33,19 @@
             </el-table-column>
         </scTable>
     </el-main>
+    <AddNode :showAddDrawer="showAddDrawer" />
 </template>
 
 <script lang="js">
+import AddNode from './components/addNode.vue'
 export default {
     name: "userList",
+    components:{
+        AddNode
+    },
     data() {
         return {
+            showAddDrawer:false,
             list: {
                 apiObj: this.$API.node.list,
             },
@@ -59,6 +65,9 @@ export default {
         },
         refreshTable(){
             this.$refs["table"].getData();
+        },
+        showAddNodeDrawer(){
+            this.showAddDrawer = true;
         }
     },
 }

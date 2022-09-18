@@ -22,5 +22,12 @@ export default {
 		post: async function(params){
             return await http.post(this.url, params);
 		}
+    },
+    add :{
+        url: `${config.API_URL}/node/add`,
+        name: "添加节点",
+		put: async function(params){
+            return await http.put(this.url, params);
+		}
     }
 }
