@@ -41,7 +41,7 @@
 
 <script>
 	export default {
-		name: "tableBase",
+		name: "userList",
 		data() {
 			return {
 				list: {

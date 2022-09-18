@@ -59,6 +59,27 @@ export default {
 							}
 						]
 					},
+                    {
+						"name": "节点",
+						"path": "/node",
+						"meta": {
+							"title": "节点",
+							"icon": "el-icon-setting",
+							"type": "menu"
+						},
+						"children": [
+							{
+								"path": "/node/list",
+								"name": "nodeList",
+								"meta": {
+									"title": "节点管理",
+									"icon": "el-icon-tools",
+									"type": "menu"
+								},
+								"component": "node/index"
+							}
+						]
+					},
 					{
 						"path": "/other/about",
 						"name": "about",

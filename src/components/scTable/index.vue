@@ -199,7 +199,6 @@
 					this.loading = false;
 					this.emptyText = response.msg;
 				}else{
-                    console.log(response)
 					this.emptyText = "暂无数据";
 					if(this.hidePagination){
 						this.tableData = response.data || [];
