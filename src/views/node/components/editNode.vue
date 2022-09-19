@@ -5,6 +5,7 @@
         </template>
         <template #default>
             <el-form :model="form" label-width="120px">
+                <input name="id" v-bind:value="form.id" type="hidden" />
                 <el-form-item label="group" prop="group" :rules="[
                   { required: true, message: '请填选择分组' }
                 ]">
@@ -66,6 +67,7 @@ export default {
             title: "添加节点",
             show: false,
             form: {
+                id: -1,
                 alias: "",
                 group: "",
                 jobName: "",
@@ -78,11 +80,18 @@ export default {
         }
     },
     props: {
-        showAddDrawer: { type: Boolean, default: false }
+        showEditDrawer: { type: Boolean, default: false },
+        id: { type: Number, default: -1 }
     },
     watch: {
-        showAddDrawer() {
-            this.show = this.showAddDrawer
+        showEditDrawer() {
+            this.show = this.showEditDrawer
+        },
+        id() {
+            this.form.id = this.id
+            if (this.form.id !== -1) {
+                this.loadNodeInfo()
+            }
         }
     },
     methods: {
@@ -90,7 +99,8 @@ export default {
             this.closeDrawer()
         },
         submitClick() {
-            this.$API.node.add.put({
+            this.$API.node.update.post({
+                "id": this.form.id,
                 "alias": this.form.alias,
                 "group": this.form.group,
                 "jobName": this.form.jobName,
@@ -116,14 +126,20 @@ export default {
             })
         },
         closeDrawer() {
-            this.$parent.showAddDrawer = false
-            this.form.alias = ""
-            this.form.group = ""
-            this.form.jobName = ""
-            this.form.host = ""
-            this.form.port = ""
-            this.form.owner = ""
-            this.form.labels = ""
+            this.$parent.showEditDrawer = false
+            this.$parent.editId = -1
+        },
+        loadNodeInfo() {
+            this.$API.node.detail.get(this.form.id).then(res => {
+                if (res.code == 0) {
+                    this.form = res.data.model
+                } else {
+                    this.$message({
+                        type: "error",
+                        message: res.message
+                    })
+                }
+            }).catch()
         }
     },
     created() {

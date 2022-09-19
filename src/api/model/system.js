@@ -60,14 +60,24 @@ export default {
 						]
 					},
                     {
-						"name": "节点",
-						"path": "/node",
+						"name": "监控",
+						"path": "/monitor",
 						"meta": {
-							"title": "节点",
+							"title": "监控管理",
 							"icon": "el-icon-setting",
 							"type": "menu"
 						},
 						"children": [
+							{
+								"path": "/group/list",
+								"name": "groupList",
+								"meta": {
+									"title": "分组管理",
+									"icon": "el-icon-tools",
+									"type": "menu"
+								},
+								"component": "group/index"
+							},
 							{
 								"path": "/node/list",
 								"name": "nodeList",
