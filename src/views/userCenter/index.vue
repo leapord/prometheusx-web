@@ -60,21 +60,21 @@
 								title: "账号信息",
 								component: "account"
 							},
-							{
-								icon: "el-icon-operation",
-								title: "个人设置",
-								component: "seting"
-							},
+							// {
+							// 	icon: "el-icon-operation",
+							// 	title: "个人设置",
+							// 	component: "seting"
+							// },
 							{
 								icon: "el-icon-lock",
 								title: "密码",
 								component: "password"
 							},
-							{
-								icon: "el-icon-bell",
-								title: "通知设置",
-								component: "pushSettings"
-							}
+							// {
+							// 	icon: "el-icon-bell",
+							// 	title: "通知设置",
+							// 	component: "pushSettings"
+							// }
 						]
 					}
 				],
