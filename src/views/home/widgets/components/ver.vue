@@ -3,7 +3,7 @@
 		<div style="height: 210px;text-align: center;">
 			<img src="img/ver.svg" style="height:140px"/>
 			<h2 style="margin-top: 15px;">Prometheusx</h2>
-			<p style="margin-top: 5px;">v1.0.0</p>
+			<p style="margin-top: 5px;">v1.1.0</p>
 		</div>
 	</el-card>
 </template>
