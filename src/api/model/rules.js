@@ -43,5 +43,12 @@ export default {
         post: async function (params) {
             return await http.post(this.url, params);
         }
+    },
+    generatedRuleFile: {
+        url: `${config.API_URL}/rule/generatedFile`,
+        name: "生成规则文件",
+        get: async function () {
+            return await http.get(this.url);
+        }
     }
 }

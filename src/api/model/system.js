@@ -101,6 +101,27 @@ export default {
 						]
 					},
 					{
+						"name": "config",
+						"path": "/config",
+						"meta": {
+							"title": "系统配置",
+							"icon": "el-icon-setting",
+							"type": "menu"
+						},
+						"children": [
+							{
+								"path": "/config/detail",
+								"name": "userList",
+								"meta": {
+									"title": "Prometheus信息",
+									"icon": "el-icon-tools",
+									"type": "menu"
+								},
+								"component": "config/index"
+							}
+						]
+					},
+					{
 						"path": "/other/about",
 						"name": "about",
 						"meta": {

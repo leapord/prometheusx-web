@@ -2,7 +2,7 @@
     <el-header>
         <div class="left-panel">
             <el-button type="primary" icon="el-icon-plus" v-on:click="showAddNodeDrawer"></el-button>
-            <el-button type="danger" disabled plain icon="el-icon-delete"></el-button>
+            <el-button type="success" plain v-on:click="generateRuleFile">生成配置文件</el-button>
         </div>
     </el-header>
     <el-main class="nopadding">
@@ -65,6 +65,21 @@ export default {
         };
     },
     methods: {
+        generateRuleFile(){
+            this.$API.rules.generatedRuleFile.get().then(res=>{
+                if (res.code == 0){
+                    this.$message({
+                        type:"success",
+                        message:"生成成功"
+                    })
+                }else{
+                    this.$message({
+                        type:"error",
+                        message:res.message
+                    })
+                }
+            })
+        },
         edit(id) {
             this.editId = id
             this.showEditDrawer = true
