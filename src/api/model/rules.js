@@ -25,14 +25,14 @@ export default {
     },
     remove: {
         url: `${config.API_URL}/rule/remove`,
-        name: "单个详情",
+        name: "删除规则",
         delete: async function (params) {
             return await http.delete(this.url + "/" + params);
         }
     },
     add: {
         url: `${config.API_URL}/rule/add`,
-        name: "单个详情",
+        name: "添加规则",
         put: async function (params) {
             return await http.put(this.url, params);
         }
