@@ -87,6 +87,16 @@ export default {
 									"type": "menu"
 								},
 								"component": "node/index"
+							},
+							{
+								"path": "/rules/list",
+								"name": "ruleList",
+								"meta": {
+									"title": "规则管理",
+									"icon": "el-icon-tools",
+									"type": "menu"
+								},
+								"component": "rules/index"
 							}
 						]
 					},

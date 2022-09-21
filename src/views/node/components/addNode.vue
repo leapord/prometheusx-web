@@ -44,9 +44,7 @@
                     </el-input>
                 </el-form-item>
                 <el-form-item label="labels">
-                    <el-input v-model="form.labels" :size="'large'" rows="5" type="textarea" class="w-50 m-2" clearable
-                        placeholder="请输入监控主机 配置属性，必须是json内容">
-                    </el-input>
+                    <JsonEditorVue class="editor" :style="{width:'100vh',height:'20vh'}" v-model="form.labels" @blur="validate" placeholder="请输入监控主机 配置属性，必须是json内容" />
                 </el-form-item>
             </el-form>
         </template>
@@ -60,7 +58,10 @@
 </template>
 
 <script lang="js">
+
 export default {
+    components: {
+    },
     data() {
         return {
             title: "添加节点",
@@ -72,7 +73,7 @@ export default {
                 host: "",
                 port: "",
                 owner: "",
-                labels: ""
+                labels: {}
             },
             groups: []
         }

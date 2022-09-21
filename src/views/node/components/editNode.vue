@@ -45,9 +45,8 @@
                     </el-input>
                 </el-form-item>
                 <el-form-item label="labels">
-                    <el-input v-model="form.labels" :size="'large'" rows="5" type="textarea" class="w-50 m-2" clearable
-                        placeholder="请输入监控主机 配置属性，必须是json内容">
-                    </el-input>
+                    <JsonEditorVue class="editor" :style="{width:'90vh',height:'20vh'}" v-model="form.labels"
+                        @blur="validate" placeholder="请输入监控主机 配置属性，必须是json内容" />
                 </el-form-item>
             </el-form>
         </template>
@@ -133,6 +132,7 @@ export default {
             this.$API.node.detail.get(this.form.id).then(res => {
                 if (res.code == 0) {
                     this.form = res.data.model
+                    this.form.labels = JSON.parse(res.data.model.labels)
                 } else {
                     this.$message({
                         type: "error",
