@@ -101,6 +101,27 @@ export default {
 						]
 					},
 					{
+						"name": "alert",
+						"path": "/alert",
+						"meta": {
+							"title": "告警管理",
+							"icon": "el-icon-setting",
+							"type": "menu"
+						},
+						"children": [
+							{
+								"path": "/alert/list",
+								"name": "alertList",
+								"meta": {
+									"title": "告警信息",
+									"icon": "el-icon-tools",
+									"type": "menu"
+								},
+								"component": "alert/index"
+							}
+						]
+					},
+					{
 						"name": "config",
 						"path": "/config",
 						"meta": {
