@@ -132,7 +132,7 @@ export default {
 						"children": [
 							{
 								"path": "/config/detail",
-								"name": "userList",
+								"name": "configDetail",
 								"meta": {
 									"title": "系统配置",
 									"icon": "el-icon-tools",
