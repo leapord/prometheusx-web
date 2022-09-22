@@ -104,7 +104,7 @@ export default {
 						"name": "config",
 						"path": "/config",
 						"meta": {
-							"title": "系统配置",
+							"title": "配置管理",
 							"icon": "el-icon-setting",
 							"type": "menu"
 						},
@@ -113,7 +113,7 @@ export default {
 								"path": "/config/detail",
 								"name": "userList",
 								"meta": {
-									"title": "Prometheus信息",
+									"title": "系统配置",
 									"icon": "el-icon-tools",
 									"type": "menu"
 								},

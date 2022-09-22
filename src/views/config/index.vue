@@ -31,6 +31,38 @@
             </el-form-item>
         </el-form>
     </el-card>
+    <el-card shadow="never" header="邮件配置">
+        <el-form ref="form" :model="form" label-width="240px" style="margin-top: 20px">
+            <el-form-item label="STAMP 地址">
+                <el-input v-model="stampAddress.value">
+                    <template #append>
+                        <el-button type="primary" @click="saveStampAddress">保存</el-button>
+                    </template>
+                </el-input>
+            </el-form-item>
+            <el-form-item label="STAMP PORT">
+                <el-input v-model="stampPort.value">
+                    <template #append>
+                        <el-button type="primary" @click="saveStampPort">保存</el-button>
+                    </template>
+                </el-input>
+            </el-form-item>
+            <el-form-item label="STAMP ACCOUNT">
+                <el-input v-model="stampAccount.value">
+                    <template #append>
+                        <el-button type="primary" @click="saveStampAccount">保存</el-button>
+                    </template>
+                </el-input>
+            </el-form-item>
+            <el-form-item label="STAMP Password">
+                <el-input v-model="stampPassword.value">
+                    <template #append>
+                        <el-button type="primary" @click="saveStampPassword">保存</el-button>
+                    </template>
+                </el-input>
+            </el-form-item>
+        </el-form>
+    </el-card>
 </template>
 
 <script>
@@ -56,7 +88,27 @@ export default {
                 id: -1,
                 name: "PROMETHEUS_CONFIG_PATH",
                 value: ""
-            }
+            },
+            stampAddress: {
+                id: -1,
+                name: "STAMP_SERVER_ADDRESS",
+                value: ""
+            },
+            stampPort: {
+                id: -1,
+                name: "STAMP_SERVER_PORT",
+                value: ""
+            },
+            stampAccount: {
+                id: -1,
+                name: "STAMP_SERVER_ACCOUNT",
+                value: ""
+            },
+            stampPassword: {
+                id: -1,
+                name: "STAMP_SERVER_PASSWORD",
+                value: ""
+            },
         }
     },
     created() {
@@ -219,6 +271,162 @@ export default {
                 })
             }
         },
+        saveStampAddress() {
+            if (this.stampAddress.id === -1) {
+                this.$API.config.add.put({
+                    name: this.stampAddress.name,
+                    value: this.stampAddress.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                        this.loadInfo()
+                    }
+                })
+            } else {
+                this.$API.config.update.post({
+                    id: this.stampAddress.id,
+                    name: this.stampAddress.name,
+                    value: this.stampAddress.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                    }
+                })
+            }
+        },
+        saveStampPort() {
+            if (this.stampPort.id === -1) {
+                this.$API.config.add.put({
+                    name: this.stampPort.name,
+                    value: this.stampPort.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                        this.loadInfo()
+                    }
+                })
+            } else {
+                this.$API.config.update.post({
+                    id: this.stampPort.id,
+                    name: this.stampPort.name,
+                    value: this.stampPort.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                    }
+                })
+            }
+        },
+        saveStampAccount() {
+            if (this.stampAccount.id === -1) {
+                this.$API.config.add.put({
+                    name: this.stampAccount.name,
+                    value: this.stampAccount.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                        this.loadInfo()
+                    }
+                })
+            } else {
+                this.$API.config.update.post({
+                    id: this.stampAccount.id,
+                    name: this.stampAccount.name,
+                    value: this.stampAccount.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                    }
+                })
+            }
+        },
+        saveStampPassword() {
+            if (this.stampPassword.id === -1) {
+                this.$API.config.add.put({
+                    name: this.stampPassword.name,
+                    value: this.stampPassword.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                        this.loadInfo()
+                    }
+                })
+            } else {
+                this.$API.config.update.post({
+                    id: this.stampPassword.id,
+                    name: this.stampPassword.name,
+                    value: this.stampPassword.value
+                }).then(res => {
+                    if (res.code != 0) {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        })
+                    } else {
+                        this.$message({
+                            type: "success",
+                            message: "保存成功"
+                        })
+                    }
+                })
+            }
+        },
         loadInfo() {
             // rulePath
             this.$API.config.name.query(this.rulePath.name).then(res => {
@@ -246,6 +454,34 @@ export default {
                 if (res.code == 0) {
                     this.configPath.value = res.data.model.value
                     this.configPath.id = res.data.model.id
+                }
+            })
+            // stamp address
+            this.$API.config.name.query(this.stampAddress.name).then(res => {
+                if (res.code == 0) {
+                    this.stampAddress.value = res.data.model.value
+                    this.stampAddress.id = res.data.model.id
+                }
+            })
+            // stamp port
+            this.$API.config.name.query(this.stampPort.name).then(res => {
+                if (res.code == 0) {
+                    this.stampPort.value = res.data.model.value
+                    this.stampPort.id = res.data.model.id
+                }
+            })
+            // stamp account
+            this.$API.config.name.query(this.stampAccount.name).then(res => {
+                if (res.code == 0) {
+                    this.stampAccount.value = res.data.model.value
+                    this.stampAccount.id = res.data.model.id
+                }
+            })
+            // stamp password
+            this.$API.config.name.query(this.stampPassword.name).then(res => {
+                if (res.code == 0) {
+                    this.stampPassword.value = res.data.model.value
+                    this.stampPassword.id = res.data.model.id
                 }
             })
         }
